@@ -1,0 +1,15 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="col-md-9">
+		<div class="card card-body">
+			<h2><centre>Ask your question here!!</centre></h2>
+
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{form.as_p}}
+				<input class="btn btn-primary" type="submit" value="Ask" name="Update Information">
+			</form>
+		</div>
+	</div>
+{% endblock %}

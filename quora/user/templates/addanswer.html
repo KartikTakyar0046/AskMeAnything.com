@@ -1,0 +1,19 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+#id_body {
+    width: 1000px;
+    height: 500px;
+}
+</style>
+<div class="col-md-9">
+		<div class="card card-body">
+<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{form.as_p}}
+				<input class="btn btn-primary" type="submit" value="Submit" name="Update Information">
+			</form>
+        </div>
+</div>
+{% endblock %}

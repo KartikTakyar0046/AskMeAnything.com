@@ -43,7 +43,7 @@
 background-color: #f44336;
   color: white;
 }
-	.profile-pic1{
+	.profile-pic2{
 		max-width: 40px;
 		max-height:40px;
 		margin: 0 auto;
@@ -67,12 +67,12 @@ background-color: #f44336;
 <strong>Answers</strong>
 </h3>
 </center>
-{% for ans in answrs%}
 
+{% for ans in answrs%}
     		<div class="card card-body">
 
     <h2 class="accordion-header" id="headingOne">
-        <img class="profile-pic1" src="{{ans.publisher.profile.profile_pic.url}}">
+        <img class="profile-pic2" src="{{ans.publisher.profile.profile_pic.url}}">
 
       <h6>  <a href="{% url 'profile-visit' ans.publisher.username%}" >
         {{ans.publisher}}</a></h6>
@@ -83,12 +83,12 @@ background-color: #f44336;
               <div id="voting">
               <form action="{% url 'like-answer' ans.pk%}" method="POST">
                   {%csrf_token%}
-                  <button class="button upvote",name="ans_id" , value="{{ans.id}}"><span style='font-size:50px;'>&#8679;</span><span style="font-size:25px; color:blue">{{ans.upvotes.count}}</span></button>
+                  <button class="button upvote",name="ans_id" , value="{{ans.id}}"><span style='font-size:50px;'>&#8679;</span><span style="font-size:25px; color:blue">{{ans.upvotes}}</span></button>
               </form>
 
                    <form action="{% url 'dislike-answer' ans.pk%}" method="POST">
                   {%csrf_token%}
-                  <button class="button downvote",name="ans_id",value="{{ans.id}}"><span style='font-size:50px;'>&#8681;</span><span style="font-size:25px; color:#DC143C">{{ans.downvotes.count}}</span></button>
+                  <button class="button downvote",name="ans_id",value="{{ans.id}}"><span style='font-size:50px;'>&#8681;</span><span style="font-size:25px; color:#DC143C">{{ans.downvotes}}</span></button>
   </form>
                   </div>
   </center>

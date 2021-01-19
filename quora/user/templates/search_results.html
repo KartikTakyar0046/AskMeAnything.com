@@ -2,9 +2,8 @@
 {% load static %}
 {% block content %}
 
-
-
 <style>
+
     a:link {
   color: red;
 }
@@ -23,10 +22,16 @@ a:hover {
 a:active {
   color: blue;
 }
-</style>
-{%for ques in questions %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
 
-<div class="card text-white bg-success mb-3" style="max-width: 80rem">
+</style>
+{% if not object_list%}
+<center><h1 style="color:green ;font-family:'Hachi Maru Pop',cursive ;">No Results found !! </h1> </center>
+{% endif%}
+{% for ques in object_list%}
+
+<div class="card text-white bg-success mb-3" style="max-width: 75rem;">
   <div class="card-body">
     <h5 class="card-title">  <a href="{% url 'question-detail' ques.pk %}"><h3 class="flow-text">{{ques.body}}</h3></a></h5>
       <p>By:- <a href="{%url 'profile-visit' ques.author.username%}"> {{ques.author}}</a> </p>
@@ -34,6 +39,5 @@ a:active {
   </div>
 </div>
 
-{% endfor %}
-
+{%endfor %}
 {% endblock %}

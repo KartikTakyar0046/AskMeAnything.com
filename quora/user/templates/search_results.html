@@ -3,30 +3,38 @@
 {% block content %}
 
 <style>
-
+body{
+background-color:#222;
+color:white;
+		}
+.card-body{
+background-color: #3e3b3f ;
+}
     a:link {
-  color: red;
+  color:  #3498db ;
 }
 
 /* visited link */
 a:visited {
-  color: blue;
+  color: white ;
 }
 
 /* mouse over link */
 a:hover {
-  color: hotpink;
+  color:  #3498db ;
 }
 
 /* selected link */
 a:active {
   color: blue;
 }
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
 
 </style>
 {% if not object_list%}
+<body>
 <center><h1 style="color:green ;font-family:'Hachi Maru Pop',cursive ;">No Results found !! </h1> </center>
 {% endif%}
 {% for ques in object_list%}
@@ -40,4 +48,5 @@ a:active {
 </div>
 
 {%endfor %}
+</body>
 {% endblock %}

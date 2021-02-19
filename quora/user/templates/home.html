@@ -5,18 +5,25 @@
 
 
 <style>
+body{
+background-color:#222;
+color:white;
+		}
+.card-body{
+background-color:  #3e3b3f   ;
+}
     a:link {
-  color: red;
+  color:  #3498db ;
 }
 
 /* visited link */
 a:visited {
-  color: blue;
+  color: white ;
 }
 
 /* mouse over link */
 a:hover {
-  color: hotpink;
+  color:  #3498db ;
 }
 
 /* selected link */
@@ -24,6 +31,7 @@ a:active {
   color: blue;
 }
 </style>
+<body>
 {%for ques in questions %}
 
 <div class="card text-white bg-success mb-3" style="max-width: 80rem">
@@ -33,7 +41,7 @@ a:active {
     <p>{{ques.published_date}}</p>
   </div>
 </div>
-
+</body>
 {% endfor %}
 
 {% endblock %}

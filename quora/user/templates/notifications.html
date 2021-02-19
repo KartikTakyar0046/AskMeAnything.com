@@ -1,6 +1,25 @@
 {%extends 'base.html'%}
 {%load static%}
 {%block content%}
+<style>
+    body{
+background-color:#222;
+color:white;
+		}
+		.btn
+		{
+		color:white;
+		}
+		.card-content{
+background-color:#222;
+color:white;
+		}
+		.card-action{
+background-color:#222;
+color:white;
+		}
+</style>
+<body>
 <br>
 <center>
     <a class="btn" href="{% url 'clear-all'%}">Clear All</a>
@@ -20,7 +39,7 @@
         <div class="card-content">
             <p><strong><a href="{% url 'profile-visit' noti.senderr.username%}">{{noti.senderr}}</a></strong> just upvoted your answer <strong>{{noti.answer}}</strong></p>
         </div>
-        <div class="card-action">
+        <div class="card-action" style="background-color:#222">
           <a href="{% url 'clear-notification' noti.id %}">Clear</a>
         </div>
       </div>
@@ -33,7 +52,7 @@
         <div class="card-content">
             <p><strong><a href="{% url 'profile-visit' noti.senderr.username%}">{{noti.senderr}}</a></strong> just downvoted your answer <strong>{{noti.answer}}</strong></p>
         </div>
-        <div class="card-action">
+        <div class="card-action" style="background-color:#222">
           <a href="{% url 'clear-notification' noti.id %}">Clear</a>
         </div>
       </div>
@@ -49,7 +68,7 @@
             <p><h5>Ans:- </h5>{{noti.answer}}</p>
 
         </div>
-        <div class="card-action">
+        <div class="card-action" style="background-color:#222">
           <a href="{% url 'clear-notification' noti.id %}">Clear</a>
         </div>
       </div>
@@ -57,5 +76,6 @@
   </div>
 {%endif%}
 {% endfor %}
+</body>
 {% endblock %}
 

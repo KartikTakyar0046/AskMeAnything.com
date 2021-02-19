@@ -10,6 +10,13 @@
 		margin: 0 auto;
 		border-radius: 50%;
 	}
+		body{
+background-color:#222;
+color:white;
+		}
+.card-body{
+background-color: #3e3b3f ;
+}
 </style>
 <center>
 		<div class="col-md-9">
@@ -26,19 +33,26 @@
         </thead>
 		<tbody>
           <tr>
-            <td>10</td>
+            <td>{{questions.count}}
+                <br>
+                {%for ques in questions%}
+                <a href="{% url 'question-detail' ques.pk %}" class="btn btn-outline-light ">{{ques.body}}</a>
+                <br>
+                {% endfor %}
+            </td>
+
             <td>{{followers.count}}
 
 				{%for f in followers%}
 
 <br>               <br>
-                <a href="{% url 'profile-visit' f.following %}" class="btn btn-outline-light text-dark">{{f.following}}</a>
+                <a href="{% url 'profile-visit' f.following %}" class="btn btn-outline-light ">{{f.following}}</a>
 				{% endfor %}
             </td>
               <td>{{following.count}}
 				{%for f in following%}
                   <br>
-                  <a href="{% url 'profile-visit' f.follower %}" class="btn btn-outline-light text-dark"	>{{f.follower}}</a>
+                  <a href="{% url 'profile-visit' f.follower %}" class="btn btn-outline-light"	>{{f.follower}}</a>
 				{% endfor %}
 
 			</td>

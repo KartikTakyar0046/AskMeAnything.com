@@ -2,26 +2,17 @@
 {% load static %}
 {% block content %}
 <style>
-	body{
-background-color:#222;
-color:white;
-		}
-.card-body{
-background-color: #222;
-color:white;
-}
 #id_body {
     width: 1000px;
     height: 500px;
-
 }
 </style>
 <div class="col-md-9">
 		<div class="card card-body">
-<form method="POST" action="" enctype="multipart/form-data" >
+<form method="POST" action="" enctype="multipart/form-data">
 				{% csrf_token %}
 				{{form.as_p}}
-				<input class="btn btn-primary" type="submit" value="Submit" name="Update Information" >
+				<input class="btn btn-primary" type="submit" value="Submit" name="Update Information">
 			</form>
         </div>
 </div>

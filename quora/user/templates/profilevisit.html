@@ -1,7 +1,17 @@
 {%  extends 'base.html' %}
 {% load static %}
 {% block content %}
-{% load static %}
+
+<style>
+	body{
+background-color:#222;
+color:white;
+		}
+.card-body{
+background-color: #3e3b3f ;
+}
+</style>
+<body>
 	<div class="col-md-3">
 		<div class="card card-body">
 				<img class="profile-pic" src="{{user_visit.profile.profile_pic.url}}" />
@@ -15,6 +25,7 @@
 		</div>
 	</div>
 {% endblock %}
+	</body>
 {% block js %}
 <script>
     $("#follow").click(function(e){

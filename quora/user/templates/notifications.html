@@ -37,7 +37,7 @@ color:white;
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-            <p><strong><a href="{% url 'profile-visit' noti.senderr.username%}">{{noti.senderr}}</a></strong> just upvoted your answer <strong>{{noti.answer}}</strong></p>
+            <p><strong><a href="{% url 'profile-visit' noti.senderr.username%}">{{noti.senderr}}</a></strong> just upvoted your answer <strong>{{noti.answer|safe}}</strong></p>
         </div>
         <div class="card-action" style="background-color:#222">
           <a href="{% url 'clear-notification' noti.id %}">Clear</a>
@@ -50,7 +50,7 @@ color:white;
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-            <p><strong><a href="{% url 'profile-visit' noti.senderr.username%}">{{noti.senderr}}</a></strong> just downvoted your answer <strong>{{noti.answer}}</strong></p>
+            <p><strong><a href="{% url 'profile-visit' noti.senderr.username%}">{{noti.senderr}}</a></strong> just downvoted your answer <strong>{{noti.answer|safe}}</strong></p>
         </div>
         <div class="card-action" style="background-color:#222">
           <a href="{% url 'clear-notification' noti.id %}">Clear</a>
@@ -63,9 +63,9 @@ color:white;
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-            <p><strong><a href="{% url 'profile-visit' noti.senderr.username%}">{{noti.senderr}}</a></strong> just added an answer to your question <strong><a href="{% url 'question-detail' noti.answer.question.pk %}">{{noti.answer.question}}</a></strong></p>
+            <p><strong><a href="{% url 'profile-visit' noti.senderr.username%}">{{noti.senderr}}</a></strong> just added an answer to your question <strong><a href="{% url 'question-detail' noti.answer.question.slug %}">{{noti.answer.question}}</a></strong></p>
         <br>
-            <p><h5>Ans:- </h5>{{noti.answer}}</p>
+            <p><h5>Ans:- </h5>{{noti.answer|safe}}</p>
 
         </div>
         <div class="card-action" style="background-color:#222">

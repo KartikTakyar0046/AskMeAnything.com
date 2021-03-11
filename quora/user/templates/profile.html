@@ -4,6 +4,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
+body{
+background-color:#222;
+color:white;
+		}
+		.card-body{
+		background-color:#222;
+		color:white;
+		}
 	.profile-pic{
 		max-width: 200px;
 		max-height:200px;
@@ -11,7 +19,11 @@
 		border-radius: 50%;
 	}
 </style>
+<body>
+	<div class="myfirst">
 <center>
+
+
 		<div class="col-md-9">
 
 <div class="card card-body">
@@ -26,7 +38,7 @@
         </thead>
 		<tbody>
           <tr>
-            <td>10</td>
+            <td>{{questions.count}}</td>
             <td>{{followers.count}}</td>
             <td>{{following.count}}</td>
           </tr>
@@ -69,6 +81,7 @@
 	</div>
 </div>
 
-
+</div>
+	</body>
 
 {% endblock %}

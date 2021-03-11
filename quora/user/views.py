@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
 import json
-
+from posts.models import Question
 def homepage(request):
     context={}
     return render(request,'home.html',context)
@@ -64,11 +64,12 @@ def account_settings(request):
 
     followers=Follow.objects.filter(follower=logged_in_user)
     form=AccountSettings(instance=profile_user)
+    questions=Question.objects.filter(author=logged_in_user)
     if request.method == 'POST':
         form = AccountSettings(request.POST,request.FILES,instance=profile_user)
         if form.is_valid():
             form.save()
-    context={'form':form,'logged_in_user':logged_in_user,'following':following,'followers':followers}
+    context={'form':form,'logged_in_user':logged_in_user,'following':following,'followers':followers,'questions':questions}
     return render(request,'profile.html',context)
 
 
@@ -92,11 +93,12 @@ def profilevisit(request,username):
 
 def following(request):
     logged_in_user=request.user
+    questions=Question.objects.filter(author=logged_in_user)
     following=Follow.objects.filter(following=logged_in_user)
     followers=Follow.objects.filter(follower=logged_in_user)
     all_follow=Follow.objects.all()
-    context={'following':following,'followers':followers,'all_follow':all_follow
-    }
+    context={'following':following,'followers':followers,'all_follow':all_follow,
+    'questions':questions}
     return render(request,'following.html',context)
 
 

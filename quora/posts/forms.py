@@ -3,7 +3,7 @@ from django.forms import ModelForm
 class AskQuestionForm(ModelForm):
     class Meta:
         model=Question
-        fields=['body']
+        fields=['body','tags']
 
 class AddAnswer(ModelForm):
     class Meta:

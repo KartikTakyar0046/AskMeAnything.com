@@ -2,15 +2,8 @@
 
 <!DOCTYPE html>
 <style>
-.navbar-custom{
-background-color: #17202a;
-height:100px;
-}
 
-.nav-wrapper{
-  padding: 6px 15px;
 
-}
 .profile-pic1{
   position: absolute;
 		max-width: 35px;
@@ -18,8 +11,7 @@ height:100px;
 		margin: 0 auto;
 		border-radius: 50%;
 	}
-    .notification {
-  background-color: #55;
+.notification {
   color: white;
   text-decoration: none;
   padding: 6px 15px;
@@ -28,9 +20,9 @@ height:100px;
   border-radius: 2px;
 }
 
-.notification:hover {
+/*.notification:hover {
   background: #55;
-}
+}*/
 .no-js #loader { display: none;  }
 .js #loader {
 display: block; position: absolute; left: 100px; top: 0; }
@@ -46,7 +38,7 @@ display: block; position: absolute; left: 100px; top: 0; }
 
 .notification .badge {
   position: absolute;
-  top: -10px;
+  top: 6px;
   right: -12px;
   padding: -2px 10px;
   border-radius: 50%;
@@ -78,7 +70,37 @@ display: block; position: absolute; left: 100px; top: 0; }
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   {% if user.is_authenticated %}
 
-<nav class="navbar navbar-custom">
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="/" style="font-size:40px; font-family: 'Architects Daughter', cursive;
+">AskMeAnything.com</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'ask-question'%}">Ask Something</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'all_users'%}">Find Your Friends here</a>
+      </li>
+      <li class="nav-item">
+        <a class="notification "href="{% url 'show-notifications'%}" >
+  <span>Notifications</span>
+  <span class="badge">{{notifications.count}}</span>
+</a>
+      </li>
+    </ul>
+<form class="form-inline" action="{% url 'search_results'%}" method="get">
+  <input name="q" class="form-control mb-2 mr-sm-2" placeholder="Search"aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<!-- <nav class="navbar navbar-custom">
+
   <a class="navbar-brand" href="/" style="font-size:40px; font-family: 'Architects Daughter', cursive;
 ">AskMeAnything.com</a>
       <li class="nav-item active">
@@ -100,30 +122,13 @@ display: block; position: absolute; left: 100px; top: 0; }
           <li class="nav-item active">
         <a class="nav-link" href="/user/logout">Logout</a>
       </li>
-<!--         <li class="nav-item ">-->
-
-<!--<div class="nav-wrapper">-->
-<!--      <form action="{% url 'search_results' %}" method="get">-->
-<!--        <div class="input-field">-->
-<!--          <input id="search" type="text" >-->
-<!--          <label class="label-icon" for="search"><i class="material-icons">search</i></label>-->
-<!--          <i class="material-icons">close</i>-->
-<!--        </div>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--         </li>-->
-<!--<form action="{% url 'search_results'%}" method="get">-->
-<!--      <input type="text" placeholder="Search.." name="search">-->
-<!--      <button type="submit"><i class="fa fa-search"></i></button>-->
-<!--    </form>-->
-<!--      <a onclick="M.toast({html: 'I am a toast'})" class="btn">Toast!</a>-->
 
    <form action="{% url 'search_results'%}" class="form-inline my-2 my-lg-0" method="get">
       <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 </nav>
-    {% endif %}
+ -->    {% endif %}
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
